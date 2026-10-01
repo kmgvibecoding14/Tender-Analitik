@@ -1,0 +1,1263 @@
+<title>Восточный Дастархан</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --teal-900:#0E6F68;
+    --teal-800:#0A5C56;
+    --teal-700:#12897E;
+    --teal-100:#D3F3EC;
+    --marigold-500:#FFA23A;
+    --marigold-600:#FF8A00;
+    --paprika-600:#FF5A4E;
+    --cream-50:#FFF8EC;
+    --cream-100:#FFEDCE;
+    --ink-900:#26201A;
+    --ink-700:#5A4E3F;
+
+    --bg: var(--cream-50);
+    --surface:#FFFFFF;
+    --surface-2: var(--cream-100);
+    --text: var(--ink-900);
+    --text-soft: var(--ink-700);
+    --accent: var(--marigold-500);
+    --accent-strong: var(--marigold-600);
+    --brand: var(--teal-900);
+    --brand-soft: var(--teal-100);
+    --line: rgba(38,32,26,0.12);
+    --good:#2FA84F;
+    --warn: var(--paprika-600);
+    color-scheme: light;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#122522;
+      --surface:#173330;
+      --surface-2:#1D423D;
+      --text:#FBF3E6;
+      --text-soft:#CFE6DE;
+      --accent: var(--marigold-500);
+      --accent-strong:#FFB65C;
+      --brand:#1AA398;
+      --brand-soft:#1D423D;
+      --line: rgba(251,243,230,0.16);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#122522;
+    --surface:#173330;
+    --surface-2:#1D423D;
+    --text:#FBF3E6;
+    --text-soft:#CFE6DE;
+    --accent: var(--marigold-500);
+    --accent-strong:#FFB65C;
+    --brand:#1AA398;
+    --brand-soft:#1D423D;
+    --line: rgba(251,243,230,0.16);
+    color-scheme: dark;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Manrope', -apple-system, sans-serif;
+    line-height:1.5;
+    padding-inline:0;
+  }
+  img{max-width:100%;}
+  h1,h2,h3{
+    font-family:'Fraunces', Georgia, serif;
+    text-wrap:balance;
+    margin:0;
+    color:var(--text);
+  }
+  .wrap{
+    max-width:1120px;
+    margin-inline:auto;
+    padding-inline:20px;
+  }
+  a{color:inherit;}
+
+  /* ---------- header ---------- */
+  header.site{
+    position:sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index:40;
+    background:var(--brand);
+    color:#fff;
+    border-bottom:3px solid var(--accent);
+  }
+  .header-row{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    padding-block:12px;
+  }
+  .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:1.15rem;
+    color:#fff;
+    letter-spacing:.2px;
+  }
+  .logo svg{flex:none;}
+  .header-right{display:flex; align-items:center; gap:14px;}
+  nav.site-nav{
+    display:flex;
+    gap:22px;
+    font-weight:600;
+    font-size:.92rem;
+  }
+  nav.site-nav a{
+    text-decoration:none;
+    color:#F3EFE6;
+    opacity:.9;
+    white-space:nowrap;
+  }
+  nav.site-nav a:hover{opacity:1; text-decoration:underline;}
+  .lang-switch{
+    display:flex;
+    gap:2px;
+    background:rgba(255,255,255,0.12);
+    border-radius:999px;
+    padding:3px;
+  }
+  .lang-btn{
+    border:none;
+    background:transparent;
+    color:#F3EFE6;
+    font-weight:700;
+    font-size:.78rem;
+    padding:5px 10px;
+    border-radius:999px;
+    cursor:pointer;
+    letter-spacing:.02em;
+  }
+  .lang-btn.active{background:var(--accent); color:var(--ink-900);}
+  .cart-btn{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    background:var(--accent);
+    color:var(--ink-900);
+    border:none;
+    border-radius:999px;
+    padding:9px 16px;
+    font-weight:700;
+    font-size:.9rem;
+    cursor:pointer;
+    white-space:nowrap;
+  }
+  .cart-btn:hover{background:var(--accent-strong);}
+  .cart-count{
+    background:var(--ink-900);
+    color:#fff;
+    border-radius:999px;
+    min-width:20px;
+    height:20px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:.72rem;
+    padding-inline:5px;
+  }
+  .top-strip{
+    background:var(--teal-800);
+    color:var(--cream-100);
+    font-size:.82rem;
+    font-weight:600;
+    text-align:center;
+    padding:6px 12px;
+  }
+
+  /* ---------- hero ---------- */
+  .hero{
+    padding-block:56px 44px;
+    background:
+      radial-gradient(650px 260px at 88% -10%, rgba(232,150,60,0.18), transparent 60%),
+      var(--bg);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap:40px;
+    align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--brand-soft);
+    color:var(--brand);
+    font-weight:700;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:999px;
+    margin-bottom:16px;
+  }
+  :root[data-theme="dark"] .eyebrow, @media (prefers-color-scheme:dark){ .eyebrow{color:#CDEAE4;} }
+  .hero h1{
+    font-size:clamp(2rem, 4vw, 2.9rem);
+    font-weight:600;
+    line-height:1.12;
+    margin-bottom:18px;
+  }
+  .hero h1 em{
+    font-style:normal;
+    color:var(--accent-strong);
+  }
+  .hero p.lede{
+    font-size:1.05rem;
+    color:var(--text-soft);
+    max-width:46ch;
+    margin-bottom:26px;
+  }
+  .hero-ctas{display:flex; gap:12px; flex-wrap:wrap; margin-bottom:28px;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    border-radius:999px;
+    padding:13px 22px;
+    font-weight:700;
+    font-size:.95rem;
+    text-decoration:none;
+    cursor:pointer;
+    border:2px solid transparent;
+  }
+  .btn-primary{background:var(--brand); color:#fff;}
+  .btn-primary:hover{background:var(--teal-700);}
+  .btn-ghost{background:transparent; border-color:var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--brand);}
+  .hero-facts{
+    display:flex;
+    gap:22px;
+    flex-wrap:wrap;
+  }
+  .fact{display:flex; flex-direction:column; gap:2px;}
+  .fact b{font-family:'Fraunces',serif; font-size:1.3rem;}
+  .fact span{font-size:.78rem; color:var(--text-soft);}
+  .hero-art{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:28px;
+    padding:18px;
+    box-shadow:0 18px 40px -22px rgba(15,61,62,0.35);
+  }
+
+  /* ---------- section shell ---------- */
+  section{padding-block:52px;}
+  .section-head{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+    margin-bottom:28px;
+    flex-wrap:wrap;
+  }
+  .section-head h2{font-size:clamp(1.5rem,3vw,2rem); font-weight:600;}
+  .section-head p{color:var(--text-soft); max-width:52ch; margin-top:6px;}
+  .tag{
+    display:inline-block;
+    background:var(--brand-soft);
+    color:var(--brand);
+    font-weight:700;
+    font-size:.72rem;
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    padding:5px 10px;
+    border-radius:999px;
+  }
+
+  /* ---------- menu filters ---------- */
+  .filters{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+    margin-bottom:26px;
+  }
+  .filter-btn{
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--text);
+    padding:8px 15px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:.85rem;
+    cursor:pointer;
+  }
+  .filter-btn.active{background:var(--brand); color:#fff; border-color:var(--brand);}
+
+  /* ---------- product grid ---------- */
+  .menu-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(260px,1fr));
+    gap:20px;
+  }
+  .card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .card-media{
+    aspect-ratio:4/3;
+    background:var(--surface-2);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
+  }
+  .card-media img{width:100%; height:100%; object-fit:cover; display:block;}
+  .badge{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background:var(--accent);
+    color:var(--ink-900);
+    font-size:.7rem;
+    font-weight:800;
+    padding:4px 9px;
+    border-radius:999px;
+    text-transform:uppercase;
+    letter-spacing:.03em;
+  }
+  .card-body{
+    padding:16px 16px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    flex:1;
+  }
+  .card-body h3{font-size:1.08rem; font-weight:600;}
+  .meta-row{
+    display:flex;
+    flex-direction:column;
+    gap:5px;
+    font-size:.82rem;
+    color:var(--text-soft);
+  }
+  .meta-row div{display:flex; gap:6px;}
+  .meta-row b{color:var(--text); font-weight:700; flex:none;}
+  .card-foot{
+    margin-top:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:10px;
+    padding-top:8px;
+  }
+  .price{font-family:'Fraunces',serif; font-weight:600; font-size:1.15rem;}
+  .price span{font-size:.72rem; color:var(--text-soft); font-family:'Manrope',sans-serif; font-weight:600;}
+  .add-btn{
+    background:var(--brand);
+    color:#fff;
+    border:none;
+    border-radius:999px;
+    padding:9px 16px;
+    font-weight:700;
+    font-size:.85rem;
+    cursor:pointer;
+  }
+  .add-btn:hover{background:var(--teal-700);}
+  .add-btn.added{background:var(--good);}
+
+  /* ---------- promotions ---------- */
+  .promo-band{
+    background:var(--brand);
+    color:#fff;
+    border-radius:28px;
+    padding:36px;
+  }
+  .promo-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px;
+    margin-top:22px;
+  }
+  .promo-card{
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius:18px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .promo-card .big{
+    font-family:'Fraunces',serif;
+    font-size:1.9rem;
+    font-weight:700;
+    color:var(--accent);
+  }
+  .promo-card p{font-size:.88rem; color:#EDF4F2; margin:0;}
+  .promo-card small{color:#BFD8D3; font-size:.76rem;}
+
+  /* ---------- checklist / cart ---------- */
+  .checklist-shell{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:28px;
+    align-items:start;
+  }
+  .steps{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .step{
+    display:flex;
+    gap:14px;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:16px;
+  }
+  .step-num{
+    flex:none;
+    width:32px; height:32px;
+    border-radius:50%;
+    background:var(--brand-soft);
+    color:var(--brand);
+    font-weight:800;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Fraunces',serif;
+  }
+  .step h4{margin:0 0 4px; font-size:.98rem;}
+  .step p{margin:0; font-size:.85rem; color:var(--text-soft);}
+
+  .cart-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:20px;
+    padding:22px;
+    position:sticky;
+    top:calc(env(safe-area-inset-top,0px) + 90px);
+  }
+  .cart-card h3{font-size:1.15rem; margin-bottom:14px;}
+  .cart-items{display:flex; flex-direction:column; gap:12px; margin-bottom:14px; max-height:280px; overflow-y:auto;}
+  .cart-empty{color:var(--text-soft); font-size:.9rem; padding-block:10px;}
+  .cart-line{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:.88rem;
+  }
+  .cart-line .name{flex:1; font-weight:600;}
+  .cart-line .qty-ctrl{
+    display:flex; align-items:center; gap:6px;
+    border:1px solid var(--line); border-radius:999px; padding:2px 6px;
+  }
+  .cart-line .qty-ctrl button{
+    border:none; background:none; width:20px; height:20px; cursor:pointer; font-weight:700; color:var(--brand); font-size:.95rem;
+  }
+  .cart-line .line-total{width:74px; text-align:right; font-weight:700;}
+  .cart-totals{
+    border-top:1px dashed var(--line);
+    padding-top:14px;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    font-size:.92rem;
+  }
+  .cart-totals .row{display:flex; justify-content:space-between;}
+  .cart-totals .grand{font-family:'Fraunces',serif; font-size:1.3rem; font-weight:700;}
+  .min-order-note{
+    font-size:.82rem;
+    padding:10px 12px;
+    border-radius:12px;
+    margin-top:10px;
+    display:flex;
+    gap:8px;
+    align-items:flex-start;
+  }
+  .min-order-note.warn{background:rgba(193,80,46,0.12); color:var(--warn);}
+  .min-order-note.good{background:rgba(63,125,76,0.14); color:var(--good);}
+  .pay-methods{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+    margin-top:14px;
+    padding-top:14px;
+    border-top:1px dashed var(--line);
+  }
+  .pay-label{font-size:.82rem; font-weight:700; color:var(--text-soft);}
+  .pay-option{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:9px 12px;
+    font-size:.88rem;
+    cursor:pointer;
+  }
+  .pay-option:has(input:checked){border-color:var(--brand); background:var(--brand-soft);}
+  .pay-option input{accent-color:var(--brand); width:16px; height:16px; flex:none;}
+  .checkout-btn{
+    width:100%;
+    margin-top:14px;
+    background:var(--accent);
+    color:var(--ink-900);
+    border:none;
+    border-radius:999px;
+    padding:13px;
+    font-weight:800;
+    font-size:.95rem;
+    cursor:pointer;
+  }
+  .checkout-btn:disabled{opacity:.5; cursor:not-allowed;}
+  .checkout-btn:not(:disabled):hover{background:var(--accent-strong);}
+  .contact-hint{font-size:.76rem; color:var(--text-soft); text-align:center; margin-top:8px;}
+
+  /* ---------- contacts / footer ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+  }
+  .contact-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:16px;
+    padding:18px;
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+  }
+  .contact-card b{font-size:1rem;}
+  .contact-card span{color:var(--text-soft); font-size:.86rem;}
+  .contact-link{
+    color:var(--brand);
+    font-size:.86rem;
+    font-weight:700;
+    text-decoration:underline;
+    text-underline-offset:2px;
+    width:fit-content;
+  }
+  .contact-link:hover{color:var(--teal-700);}
+  .copy-btn{
+    align-self:flex-start;
+    margin-top:6px;
+    border:1px solid var(--line);
+    background:transparent;
+    color:var(--text);
+    border-radius:999px;
+    padding:5px 12px;
+    font-size:.76rem;
+    font-weight:700;
+    cursor:pointer;
+  }
+  footer{
+    background:var(--brand);
+    color:#EDF4F2;
+    padding-block:28px;
+    margin-top:20px;
+  }
+  footer .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:14px;
+    flex-wrap:wrap;
+    font-size:.82rem;
+  }
+
+  @media (max-width:860px){
+    .hero-grid{grid-template-columns:1fr;}
+    .checklist-shell{grid-template-columns:1fr;}
+    nav.site-nav{display:none;}
+    .cart-card{position:static;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important; animation:none !important;}
+  }
+</style>
+
+<div class="top-strip" data-i18n="topStrip"></div>
+
+<header class="site">
+  <div class="wrap header-row">
+    <div class="logo">
+      <svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+        <circle cx="15" cy="15" r="14" fill="#FFA23A"/>
+        <path d="M8 17c1.5-5 5-8 7-8s5.5 3 7 8c-2 3-5 4-7 4s-5-1-7-4Z" fill="#0E6F68"/>
+        <circle cx="15" cy="13.5" r="2.1" fill="#FBF3E7"/>
+      </svg>
+      Восточный Дастархан
+    </div>
+    <nav class="site-nav">
+      <a href="#menu" data-i18n="navMenu"></a>
+      <a href="#promo" data-i18n="navPromo"></a>
+      <a href="#checklist" data-i18n="navChecklist"></a>
+      <a href="#contacts" data-i18n="navContacts"></a>
+    </nav>
+    <div class="header-right">
+      <div class="lang-switch" id="langSwitch">
+        <button class="lang-btn" data-lang="ru">RU</button>
+        <button class="lang-btn" data-lang="kk">ҚАЗ</button>
+        <button class="lang-btn" data-lang="en">EN</button>
+      </div>
+      <button class="cart-btn" id="openCartBtn">
+        🧺 <span data-i18n="cartLabel"></span> <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <span class="eyebrow" data-i18n="heroEyebrow"></span>
+        <h1 data-i18n-html="heroTitleHtml"></h1>
+        <p class="lede" data-i18n="heroLede"></p>
+        <div class="hero-ctas">
+          <a href="#menu" class="btn btn-primary" data-i18n="heroCta1"></a>
+          <a href="#checklist" class="btn btn-ghost" data-i18n="heroCta2"></a>
+        </div>
+        <div class="hero-facts">
+          <div class="fact"><b>24/7</b><span data-i18n="factDelivery"></span></div>
+          <div class="fact"><b data-i18n="factMinOrderValue"></b><span data-i18n="factMinOrderLabel"></span></div>
+          <div class="fact"><b data-i18n="factTimeValue"></b><span data-i18n="factTime"></span></div>
+        </div>
+      </div>
+      <div class="hero-art">
+        <svg viewBox="0 0 420 360" width="100%" height="100%">
+          <rect x="0" y="0" width="420" height="360" rx="20" fill="var(--surface-2)"/>
+          <ellipse cx="210" cy="300" rx="150" ry="18" fill="rgba(15,61,62,0.08)"/>
+          <circle cx="210" cy="175" r="130" fill="var(--brand-soft)"/>
+          <g transform="translate(210,150)">
+            <ellipse cx="0" cy="60" rx="115" ry="16" fill="#0E6F68" opacity=".12"/>
+            <circle cx="0" cy="0" r="95" fill="#FBF3E7"/>
+            <g transform="translate(-55,-10)">
+              <path d="M0 20c4-16 16-26 22-26s18 10 22 26c-6 9-16 13-22 13s-16-4-22-13Z" fill="#FFA23A"/>
+            </g>
+            <g transform="translate(-10,10)">
+              <path d="M0 20c4-16 16-26 22-26s18 10 22 26c-6 9-16 13-22 13s-16-4-22-13Z" fill="#FF5A4E"/>
+            </g>
+            <g transform="translate(35,-15)">
+              <path d="M0 20c4-16 16-26 22-26s18 10 22 26c-6 9-16 13-22 13s-16-4-22-13Z" fill="#12897E"/>
+            </g>
+            <g transform="translate(-30,-45)">
+              <path d="M0 20c4-16 16-26 22-26s18 10 22 26c-6 9-16 13-22 13s-16-4-22-13Z" fill="#FFA23A" opacity=".85"/>
+            </g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <section id="menu">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag" data-i18n="menuTag"></span>
+          <h2 data-i18n="menuTitle"></h2>
+          <p data-i18n="menuLede"></p>
+        </div>
+      </div>
+
+      <div class="filters" id="filters"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <section id="promo">
+    <div class="wrap">
+      <div class="promo-band">
+        <span class="tag" style="background:rgba(255,255,255,0.15); color:#fff;" data-i18n="promoTag"></span>
+        <h2 style="color:#fff; margin-top:10px;" data-i18n="promoTitle"></h2>
+        <div class="promo-grid">
+          <div class="promo-card">
+            <div class="big" data-i18n="promo1Big"></div>
+            <p><b data-i18n="promo1Title"></b> <span data-i18n="promo1Text"></span></p>
+            <small data-i18n="promo1Small"></small>
+          </div>
+          <div class="promo-card">
+            <div class="big" data-i18n="promo2Big"></div>
+            <p><b data-i18n="promo2Title"></b> <span data-i18n="promo2Text"></span></p>
+            <small data-i18n="promo2Small"></small>
+          </div>
+          <div class="promo-card">
+            <div class="big" data-i18n="promo3Big"></div>
+            <p><b data-i18n="promo3Title"></b> <span data-i18n="promo3Text"></span></p>
+            <small data-i18n="promo3Small"></small>
+          </div>
+          <div class="promo-card">
+            <div class="big" data-i18n="promo4Big"></div>
+            <p><b data-i18n="promo4Title"></b> <span data-i18n="promo4Text"></span></p>
+            <small data-i18n="promo4Small"></small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="checklist">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag" data-i18n="checklistTag"></span>
+          <h2 data-i18n="checklistTitle"></h2>
+        </div>
+      </div>
+      <div class="checklist-shell">
+        <div class="steps">
+          <div class="step">
+            <div class="step-num">1</div>
+            <div>
+              <h4 data-i18n="step1Title"></h4>
+              <p data-i18n="step1Text"></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">2</div>
+            <div>
+              <h4 data-i18n="step2Title"></h4>
+              <p data-i18n="step2Text"></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">3</div>
+            <div>
+              <h4 data-i18n="step3Title"></h4>
+              <p data-i18n="step3Text"></p>
+            </div>
+          </div>
+          <div class="step">
+            <div class="step-num">✓</div>
+            <div>
+              <h4 data-i18n="step4Title"></h4>
+              <p data-i18n="step4Text"></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-card">
+          <h3 data-i18n="cartTitle"></h3>
+          <div class="cart-items" id="cartItems"></div>
+          <div class="cart-totals">
+            <div class="row"><span data-i18n="rowItems"></span><span id="totalCount">0</span></div>
+            <div class="row"><span data-i18n="rowSubtotal"></span><span id="subTotal">0 ₸</span></div>
+            <div class="row"><span data-i18n="rowDelivery"></span><span id="deliveryFee">—</span></div>
+            <div class="row grand"><span data-i18n="rowTotal"></span><span id="totalSum">0 ₸</span></div>
+          </div>
+          <div id="minOrderNote"></div>
+
+          <div class="pay-methods">
+            <span class="pay-label" data-i18n="payLabel"></span>
+            <label class="pay-option">
+              <input type="radio" name="payMethod" value="card" checked>
+              <span data-i18n="payCard"></span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="payMethod" value="applepay">
+              <span data-i18n="payApplePay"></span>
+            </label>
+            <label class="pay-option">
+              <input type="radio" name="payMethod" value="cash">
+              <span data-i18n="payCash"></span>
+            </label>
+          </div>
+
+          <button class="checkout-btn" id="checkoutBtn" disabled data-i18n="checkoutBtn"></button>
+          <p class="contact-hint" data-i18n="checkoutHint"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contacts">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="tag" data-i18n="contactsTag"></span>
+          <h2 data-i18n="contactsTitle"></h2>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <b data-i18n="contactPhoneLabel"></b>
+          <a class="contact-link" href="tel:+77001234567" id="phoneText">+7 (700) 123-45-67</a>
+          <button class="copy-btn" data-copy="+7 (700) 123-45-67" data-i18n="copyBtn"></button>
+        </div>
+        <div class="contact-card">
+          <b data-i18n="contactWhatsappLabel"></b>
+          <a class="contact-link" href="https://wa.me/77001234567" target="_blank" rel="noopener">+7 (700) 123-45-67</a>
+          <button class="copy-btn" data-copy="+7 (700) 123-45-67" data-i18n="copyBtn"></button>
+        </div>
+        <div class="contact-card">
+          <b data-i18n="contactInstagramLabel"></b>
+          <a class="contact-link" href="https://instagram.com/vostochniy.dastarkhan.astana" target="_blank" rel="noopener">@vostochniy.dastarkhan.astana</a>
+          <button class="copy-btn" data-copy="@vostochniy.dastarkhan.astana" data-i18n="copyBtn"></button>
+        </div>
+        <div class="contact-card">
+          <b data-i18n="contactZoneLabel"></b>
+          <span data-i18n="contactZoneValue"></span>
+        </div>
+        <div class="contact-card">
+          <b data-i18n="contactHoursLabel"></b>
+          <span data-i18n="contactHoursValue"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span data-i18n="footer1"></span>
+    <span data-i18n="footer2"></span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  const LOCALE_MAP = {ru:'ru-RU', kk:'ru-RU', en:'en-US'};
+  const LANG_KEY = 'vd_lang_v1';
+  const CART_KEY = 'vd_cart_v1';
+  const MIN_ORDER = 10000;
+  const DELIVERY_FEE = 1200;
+
+  const I18N = {
+    ru:{
+      topStrip:'🚚 Доставка по Астане 24/7 · Бесплатно от 10 000 ₸, при заказе меньше — доставка 1 200 ₸',
+      navMenu:'Ассортимент', navPromo:'Акции', navChecklist:'Как заказать', navContacts:'Контакты',
+      cartLabel:'Чек-лист',
+      heroEyebrow:'Восточная кухня · Астана',
+      heroTitleHtml:'Домашние <em>полуфабрикаты</em>,<br>которые готовятся, пока вы накрываете на стол',
+      heroLede:'Манты, самса, лагман и плов-наборы лепим вручную из свежего фарша и теста без добавок. Указываем состав и точное время готовки у каждого блюда — просто выбираете и варите.',
+      heroCta1:'Смотреть ассортимент', heroCta2:'Как оформить заказ',
+      factDelivery:'приём и доставка заказов',
+      factMinOrderValue:'от 10 000 ₸', factMinOrderLabel:'доставка бесплатно, иначе 1 200 ₸',
+      factTimeValue:'25–40 мин', factTime:'среднее время готовки блюда',
+      menuTag:'Ассортимент', menuTitle:'Выбирайте по составу и времени готовки',
+      menuLede:'У каждого блюда — точный состав и время приготовления, чтобы вы точно знали, что окажется на столе и сколько это займёт.',
+      filterAll:'Все',
+      promoTag:'Акции', promoTitle:'Выгоднее заказывать сразу набором',
+      promo1Big:'−15%', promo1Title:'На первый заказ.', promo1Text:'Скидка применяется автоматически при первой доставке на новый адрес.', promo1Small:'Действует при заказе от 10 000 ₸',
+      promo2Big:'2×1', promo2Title:'Самса дня.', promo2Text:'При заказе от 6 штук самсы — ещё 2 штуки любого вкуса в подарок.', promo2Small:'Ежедневно, кроме праздников',
+      promo3Big:'Дастархан', promo3Title:'Семейный набор.', promo3Text:'Манты + лагман-заготовка + самса — комплект на 4 персоны со скидкой 12%.', promo3Small:'Собирается в чек-листе автоматически',
+      promo4Big:'24/7', promo4Title:'Ночная доставка.', promo4Text:'С 23:00 до 07:00 доставка без наценки при заказе от 10 000 ₸.', promo4Small:'По всей Астане',
+      checklistTag:'Чек-лист заказа', checklistTitle:'Как оформить доставку за 3 шага',
+      step1Title:'Соберите чек-лист', step1Text:'Добавляйте блюда кнопкой «В чек-лист» — справа сразу видно количество, состав позиций и сумму заказа.',
+      step2Title:'Соберите заказ от 10 000 ₸', step2Text:'От этой суммы доставка по Астане бесплатная. Если заказ меньше — в чек-листе добавится доставка 1 200 ₸.',
+      step3Title:'Отправьте заказ', step3Text:'Нажмите «Отправить в WhatsApp» — откроется чат с готовым списком блюд, останется указать адрес и время.',
+      step4Title:'Готовим и везём 24/7', step4Text:'Курьер привозит заказ в удобное время, включая ночь — доставка работает круглосуточно, без выходных.',
+      cartTitle:'Ваш чек-лист', cartEmpty:'Пока пусто — выберите блюда в разделе «Ассортимент».',
+      rowItems:'Позиций', rowSubtotal:'Сумма блюд', rowDelivery:'Доставка', rowTotal:'Итого', deliveryFree:'Бесплатно',
+      noteWarn:(rest)=>'🚚 Доставка 1 200 ₸ — добавьте блюд ещё на '+rest+' ₸, чтобы доставка стала бесплатной.',
+      noteGood:'✅ Доставка бесплатная, доступна круглосуточно.',
+      payLabel:'Способ оплаты', payCard:'💳 Картой онлайн', payApplePay:'🍎 Apple Pay', payCash:'💵 Наличными или картой курьеру при получении',
+      checkoutBtn:'Отправить в WhatsApp',
+      checkoutHint:'Кнопка открывает WhatsApp с готовым списком заказа и выбранным способом оплаты. Если чат не открылся — продиктуйте список по телефону ниже.',
+      contactsTag:'Контакты', contactsTitle:'Мы на связи круглосуточно',
+      contactPhoneLabel:'Телефон', contactWhatsappLabel:'WhatsApp', contactInstagramLabel:'Instagram',
+      contactZoneLabel:'Зона доставки', contactZoneValue:'Все районы Астаны: Есиль, Алматы, Сарыарка, Байконур',
+      contactHoursLabel:'Режим работы', contactHoursValue:'Приём заказов и доставка — 24 часа, 7 дней в неделю',
+      footer1:'© Восточный Дастархан, Астана · полуфабрикаты восточной кухни',
+      footer2:'Бесплатная доставка от 10 000 ₸, иначе доставка 1 200 ₸',
+      addToCart:'В чек-лист', inCartLabel:'В чек-листе ✓',
+      compositionLabel:'Состав', timeLabel:'Время',
+      copyBtn:'Скопировать', copiedBtn:'Скопировано!',
+      ariaOpenCart:'Открыть чек-лист заказа', ariaRemoveOne:'Убрать одну штуку', ariaAddOne:'Добавить ещё',
+      whatsappGreeting:'Здравствуйте! Хочу заказать:', whatsappDelivery:'Доставка: ', whatsappDeliveryFree:'Доставка: бесплатно',
+      whatsappTotal:'Итого к оплате: ', whatsappPayment:'Оплата: ', whatsappAddress:'Адрес доставки: '
+    },
+    kk:{
+      topStrip:'🚚 Астана бойынша тәулік бойы жеткізу · 10 000 ₸-ден тегін, аз болса — жеткізу 1 200 ₸',
+      navMenu:'Ассортимент', navPromo:'Акциялар', navChecklist:'Тапсырыс беру', navContacts:'Байланыс',
+      cartLabel:'Тізім',
+      heroEyebrow:'Шығыс асханасы · Астана',
+      heroTitleHtml:'Үстел жинап жатқанда дайын болатын<br>үй жасаған <em>жартылай өнімдер</em>',
+      heroLede:'Мантыны, самсаны, лагманды және палау жинақтарын қолмен, қоспасыз қамыр мен қиымадан жасаймыз. Әр тағамның құрамы мен дайындау уақытын көрсетеміз — таңдап, пісіресіз.',
+      heroCta1:'Ассортиментті көру', heroCta2:'Тапсырысты қалай беру керек',
+      factDelivery:'тапсырыс қабылдау және жеткізу',
+      factMinOrderValue:'10 000 ₸-ден', factMinOrderLabel:'жеткізу тегін, аз болса 1 200 ₸',
+      factTimeValue:'25–40 минут', factTime:'тағамды дайындаудың орташа уақыты',
+      menuTag:'Ассортимент', menuTitle:'Құрамы мен дайындау уақытына қарай таңдаңыз',
+      menuLede:'Әр тағамның нақты құрамы мен дайындалу уақыты көрсетілген — үстелге не қоятыныңызды және қанша уақыт кететінін нақты білесіз.',
+      filterAll:'Барлығы',
+      promoTag:'Акциялар', promoTitle:'Жинақпен тапсырыс беру тиімдірек',
+      promo1Big:'−15%', promo1Title:'Алғашқы тапсырысқа.', promo1Text:'Жаңа мекенжайға алғаш жеткізу кезінде жеңілдік автоматты түрде қолданылады.', promo1Small:'10 000 ₸-ден жоғары тапсырысқа қолданылады',
+      promo2Big:'2×1', promo2Title:'Күн самсасы.', promo2Text:'6 данадан бастап самса тапсырысына — тағы 2 дана кез келген дәмде сыйлыққа.', promo2Small:'Мерекелерден басқа күнде',
+      promo3Big:'Дастархан', promo3Title:'Отбасылық жинақ.', promo3Text:'Манты + лагман жартылай өнімі + самса — 4 адамға арналған жинақ, 12% жеңілдікпен.', promo3Small:'Тізімде автоматты түрде жиналады',
+      promo4Big:'24/7', promo4Title:'Түнгі жеткізу.', promo4Text:'23:00-ден 07:00-ге дейін 10 000 ₸-ден жоғары тапсырысқа үстеме ақысыз жеткізу.', promo4Small:'Астана бойынша',
+      checklistTag:'Тапсырыс тізімі', checklistTitle:'3 қадаммен тапсырыс беру',
+      step1Title:'Тізімді жинаңыз', step1Text:'«Тізімге қосу» түймесімен тағамдарды қосыңыз — оң жақта саны, құрамы және сомасы бірден көрінеді.',
+      step2Title:'10 000 ₸-ден тапсырыс жинаңыз', step2Text:'Осы соманан бастап Астана бойынша жеткізу тегін. Аз болса — тізімге 1 200 ₸ жеткізу ақысы қосылады.',
+      step3Title:'Тапсырысты жіберіңіз', step3Text:'«WhatsApp-қа жіберу» түймесін басыңыз — дайын тізіммен чат ашылады, мекенжай мен уақытты көрсету ғана қалады.',
+      step4Title:'Тәулік бойы дайындап, жеткіземіз', step4Text:'Курьер тапсырысты ыңғайлы уақытта, түнде де жеткізеді — жеткізу демалыссыз, тәулік бойы жұмыс істейді.',
+      cartTitle:'Сіздің тізіміңіз', cartEmpty:'Әзірге бос — «Ассортимент» бөлімінен тағам таңдаңыз.',
+      rowItems:'Позициялар', rowSubtotal:'Тағамдар сомасы', rowDelivery:'Жеткізу', rowTotal:'Барлығы', deliveryFree:'Тегін',
+      noteWarn:(rest)=>'🚚 Жеткізу 1 200 ₸ — жеткізу тегін болу үшін тағы '+rest+' ₸-ге тағам қосыңыз.',
+      noteGood:'✅ Жеткізу тегін, тәулік бойы қолжетімді.',
+      payLabel:'Төлем түрі', payCard:'💳 Картамен онлайн', payApplePay:'🍎 Apple Pay', payCash:'💵 Курьерге қолма-қол немесе картамен',
+      checkoutBtn:'WhatsApp-қа жіберу',
+      checkoutHint:'Түйме дайын тапсырыс тізімі мен таңдалған төлем түрімен WhatsApp-ты ашады. Чат ашылмаса — тізімді телефон арқылы айтыңыз.',
+      contactsTag:'Байланыс', contactsTitle:'Біз тәулік бойы байланыстамыз',
+      contactPhoneLabel:'Телефон', contactWhatsappLabel:'WhatsApp', contactInstagramLabel:'Instagram',
+      contactZoneLabel:'Жеткізу аймағы', contactZoneValue:'Астананың барлық аудандары: Есіл, Алматы, Сарыарқа, Байқоңыр',
+      contactHoursLabel:'Жұмыс уақыты', contactHoursValue:'Тапсырыс қабылдау және жеткізу — тәулігіне 24 сағат, аптасына 7 күн',
+      footer1:'© Восточный Дастархан, Астана · шығыс асханасының жартылай өнімдері',
+      footer2:'10 000 ₸-ден жоғары тегін жеткізу, аз болса — жеткізу 1 200 ₸',
+      addToCart:'Тізімге қосу', inCartLabel:'Тізімде ✓',
+      compositionLabel:'Құрамы', timeLabel:'Уақыты',
+      copyBtn:'Көшіру', copiedBtn:'Көшірілді!',
+      ariaOpenCart:'Тапсырыс тізімін ашу', ariaRemoveOne:'Бір данасын алып тастау', ariaAddOne:'Тағы қосу',
+      whatsappGreeting:'Сәлеметсіз бе! Тапсырыс бергім келеді:', whatsappDelivery:'Жеткізу: ', whatsappDeliveryFree:'Жеткізу: тегін',
+      whatsappTotal:'Төленетін сома: ', whatsappPayment:'Төлем: ', whatsappAddress:'Жеткізу мекенжайы: '
+    },
+    en:{
+      topStrip:'🚚 Delivery across Astana 24/7 · Free from 10,000 ₸, otherwise delivery is 1,200 ₸',
+      navMenu:'Menu', navPromo:'Offers', navChecklist:'How to order', navContacts:'Contacts',
+      cartLabel:'Checklist',
+      heroEyebrow:'Eastern cuisine · Astana',
+      heroTitleHtml:'Homemade <em>ready-to-cook meals</em>,<br>ready by the time you set the table',
+      heroLede:'We hand-make manty, samsa, lagman and plov kits from fresh meat and dough with no additives. Composition and exact cooking time are listed for every dish — just pick and cook.',
+      heroCta1:'View the menu', heroCta2:'How to order',
+      factDelivery:'order intake and delivery',
+      factMinOrderValue:'from 10,000 ₸', factMinOrderLabel:'free delivery, otherwise 1,200 ₸',
+      factTimeValue:'25–40 min', factTime:'average cooking time per dish',
+      menuTag:'Menu', menuTitle:'Choose by composition and cooking time',
+      menuLede:'Every dish lists its exact composition and cooking time, so you know exactly what will be on the table and how long it takes.',
+      filterAll:'All',
+      promoTag:'Offers', promoTitle:'Ordering a full set pays off more',
+      promo1Big:'−15%', promo1Title:'On your first order.', promo1Text:'The discount applies automatically on the first delivery to a new address.', promo1Small:'For orders from 10,000 ₸',
+      promo2Big:'2×1', promo2Title:'Samsa of the day.', promo2Text:'Order 6 or more samsa and get 2 more of any flavor for free.', promo2Small:'Daily, except holidays',
+      promo3Big:'Dastarkhan', promo3Title:'Family set.', promo3Text:'Manty + lagman base + samsa — a set for 4 with a 12% discount.', promo3Small:'Assembled automatically in the checklist',
+      promo4Big:'24/7', promo4Title:'Night delivery.', promo4Text:'From 11pm to 7am, delivery with no surcharge for orders from 10,000 ₸.', promo4Small:'Across Astana',
+      checklistTag:'Order checklist', checklistTitle:'How to order delivery in 3 steps',
+      step1Title:'Build your checklist', step1Text:'Add dishes with the "Add to checklist" button — quantity, items and total appear on the right instantly.',
+      step2Title:'Reach 10,000 ₸', step2Text:'Delivery across Astana is free from this amount. Below it, a 1,200 ₸ delivery fee is added to the checklist.',
+      step3Title:'Send your order', step3Text:'Tap "Send via WhatsApp" — a chat opens with the ready list of dishes, just add your address and time.',
+      step4Title:'We cook and deliver 24/7', step4Text:'The courier brings your order whenever suits you, even at night — delivery runs around the clock, every day.',
+      cartTitle:'Your checklist', cartEmpty:'Nothing here yet — pick dishes in the "Menu" section.',
+      rowItems:'Items', rowSubtotal:'Food total', rowDelivery:'Delivery', rowTotal:'Total', deliveryFree:'Free',
+      noteWarn:(rest)=>'🚚 Delivery is 1,200 ₸ — add '+rest+' ₸ more to get free delivery.',
+      noteGood:'✅ Delivery is free, available 24/7.',
+      payLabel:'Payment method', payCard:'💳 Card online', payApplePay:'🍎 Apple Pay', payCash:'💵 Cash or card on delivery',
+      checkoutBtn:'Send via WhatsApp',
+      checkoutHint:'The button opens WhatsApp with your order list and chosen payment method. If the chat doesn’t open, just call in your order using the phone below.',
+      contactsTag:'Contacts', contactsTitle:'We’re reachable around the clock',
+      contactPhoneLabel:'Phone', contactWhatsappLabel:'WhatsApp', contactInstagramLabel:'Instagram',
+      contactZoneLabel:'Delivery area', contactZoneValue:'All districts of Astana: Yesil, Almaty, Saryarka, Baikonur',
+      contactHoursLabel:'Hours', contactHoursValue:'Orders and delivery — 24 hours a day, 7 days a week',
+      footer1:'© Vostochniy Dastarkhan, Astana · Eastern cuisine ready-to-cook meals',
+      footer2:'Free delivery from 10,000 ₸, otherwise delivery is 1,200 ₸',
+      addToCart:'Add to checklist', inCartLabel:'In checklist ✓',
+      compositionLabel:'Composition', timeLabel:'Time',
+      copyBtn:'Copy', copiedBtn:'Copied!',
+      ariaOpenCart:'Open order checklist', ariaRemoveOne:'Remove one', ariaAddOne:'Add one more',
+      whatsappGreeting:'Hello! I would like to order:', whatsappDelivery:'Delivery: ', whatsappDeliveryFree:'Delivery: free',
+      whatsappTotal:'Total to pay: ', whatsappPayment:'Payment: ', whatsappAddress:'Delivery address: '
+    }
+  };
+
+  const CATEGORY_LABELS = {
+    steam:{ru:'На пару', kk:'Буда пісірілген', en:'Steamed'},
+    boil:{ru:'Варка', kk:'Қайнату', en:'Boiled'},
+    bake:{ru:'Выпечка', kk:'Пісіру', en:'Baked'},
+    fry:{ru:'Жарка', kk:'Қуыру', en:'Fried'}
+  };
+
+  const PRODUCTS = [
+    {id:'manty', category:'steam', tag:{ru:'Хиты',kk:'Хиттер',en:'Hits'}, price:2400, photo:'images/manty.jpg',
+      name:{ru:'Манты по-казахски', kk:'Қазақша мантылар', en:'Kazakh-style Manty'},
+      composition:{ru:'Говядина, лук, тыква, тесто ручной лепки', kk:'Сиыр еті, пияз, асқабақ, қолмен жасалған қамыр', en:'Beef, onion, pumpkin, hand-rolled dough'},
+      time:{ru:'25 мин на пару', kk:'буда 25 минут', en:'25 min steaming'},
+      unit:{ru:'кг', kk:'кг', en:'kg'}},
+    {id:'pelmeni', category:'boil', tag:null, price:2200, photo:'images/pelmeni.jpg',
+      name:{ru:'Пельмени домашние', kk:'Үй жасаған пельмень', en:'Homemade Pelmeni'},
+      composition:{ru:'Говядина, баранина, лук, тесто', kk:'Сиыр еті, қой еті, пияз, қамыр', en:'Beef, lamb, onion, dough'},
+      time:{ru:'8–10 мин варки', kk:'8–10 минут қайнату', en:'8–10 min boiling'},
+      unit:{ru:'кг', kk:'кг', en:'kg'}},
+    {id:'lagman', category:'boil', tag:{ru:'Комплект',kk:'Жинақ',en:'Kit'}, price:2600, photo:'images/lagman.jpg',
+      name:{ru:'Лагман-заготовка', kk:'Лагман жартылай өнімі', en:'Lagman Base'},
+      composition:{ru:'Лапша ручной вытяжки, соус из говядины, овощи, специи', kk:'Қолмен созылған кеспе, сиыр етінен соус, көкөністер, дәмдеуіштер', en:'Hand-pulled noodles, beef sauce, vegetables, spices'},
+      time:{ru:'15 мин разогрева', kk:'15 минут жылыту', en:'15 min reheating'},
+      unit:{ru:'порция', kk:'порция', en:'portion'}},
+    {id:'samsa', category:'bake', tag:{ru:'Хиты',kk:'Хиттер',en:'Hits'}, price:350, photo:'images/samsa.jpg',
+      name:{ru:'Самса с тыквой', kk:'Асқабақты самса', en:'Pumpkin Samsa'},
+      composition:{ru:'Слоёное тесто, тыква, лук, специи', kk:'Қабатты қамыр, асқабақ, пияз, дәмдеуіштер', en:'Puff pastry, pumpkin, onion, spices'},
+      time:{ru:'30 мин выпекания', kk:'30 минут пісіру', en:'30 min baking'},
+      unit:{ru:'шт', kk:'дана', en:'pcs'}},
+    {id:'cheburek', category:'fry', tag:null, price:300, photo:'images/cheburek.jpg',
+      name:{ru:'Чебуреки с бараниной', kk:'Қой етті шелпек', en:'Lamb Chebureki'},
+      composition:{ru:'Баранина, лук, тонкое тесто', kk:'Қой еті, пияз, жұқа қамыр', en:'Lamb, onion, thin dough'},
+      time:{ru:'10 мин жарки', kk:'10 минут қуыру', en:'10 min frying'},
+      unit:{ru:'шт', kk:'дана', en:'pcs'}},
+    {id:'khinkali', category:'boil', tag:null, price:2500, photo:'images/khinkali.jpg',
+      name:{ru:'Хинкали с зеленью и мясом', kk:'Жасылшамен және еттi хинкали', en:'Khinkali with Herbs and Meat'},
+      composition:{ru:'Говядина, кинза, лук, тесто-мешочек', kk:'Сиыр еті, кинза, пияз, қамыр', en:'Beef, cilantro, onion, dough pouch'},
+      time:{ru:'12 мин варки', kk:'12 минут қайнату', en:'12 min boiling'},
+      unit:{ru:'кг', kk:'кг', en:'kg'}},
+    {id:'kutaby', category:'fry', tag:null, price:320, photo:'images/kutaby.jpg',
+      name:{ru:'Кутабы с зеленью', kk:'Жасыл кутабы', en:'Herb Kutaby'},
+      composition:{ru:'Тонкое тесто, шпинат, кинза, зелёный лук', kk:'Жұқа қамыр, шпинат, кинза, жасыл пияз', en:'Thin dough, spinach, cilantro, green onion'},
+      time:{ru:'5 мин на сухой сковороде', kk:'құрғақ табада 5 минут', en:'5 min on a dry pan'},
+      unit:{ru:'шт', kk:'дана', en:'pcs'}},
+    {id:'plov', category:'boil', tag:{ru:'Комплект',kk:'Жинақ',en:'Kit'}, price:3200, photo:'images/plov.jpg',
+      name:{ru:'Плов-набор', kk:'Палау жинағы', en:'Plov Kit'},
+      composition:{ru:'Мясо, морковь, лук, специи для плова, рис отдельно', kk:'Ет, сәбіз, пияз, палау дәмдеуіштері, күріш бөлек', en:'Meat, carrot, onion, plov spices, rice separate'},
+      time:{ru:'40 мин на плите', kk:'плитада 40 минут', en:'40 min on the stove'},
+      unit:{ru:'набор на 2–3 порции', kk:'2–3 адамға жинақ', en:'kit for 2–3 servings'}},
+    {id:'buuz', category:'steam', tag:{ru:'Новинка',kk:'Жаңалық',en:'New'}, price:2300, photo:'images/buuz.jpg',
+      name:{ru:'Буузы', kk:'Бууз', en:'Buuz'},
+      composition:{ru:'Говядина, лук, чеснок, тесто ручной лепки', kk:'Сиыр еті, пияз, сарымсақ, қолмен жасалған қамыр', en:'Beef, onion, garlic, hand-rolled dough'},
+      time:{ru:'20 мин на пару', kk:'буда 20 минут', en:'20 min steaming'},
+      unit:{ru:'кг', kk:'кг', en:'kg'}},
+    {id:'dushbara', category:'boil', tag:{ru:'Новинка',kk:'Жаңалық',en:'New'}, price:2700, photo:'images/dushbara.jpg',
+      name:{ru:'Дюшбара', kk:'Дюшбара', en:'Dushbara'},
+      composition:{ru:'Мелкие пельмени с бараниной, мятный соус отдельно', kk:'Қой етті ұсақ пельмень, жалбыз соусы бөлек', en:'Small lamb dumplings, mint sauce separate'},
+      time:{ru:'10 мин варки', kk:'10 минут қайнату', en:'10 min boiling'},
+      unit:{ru:'порция', kk:'порция', en:'portion'}},
+    {id:'kystyby', category:'bake', tag:{ru:'Новинка',kk:'Жаңалық',en:'New'}, price:280, photo:'images/kystyby.jpg',
+      name:{ru:'Кыстыбый с картофелем', kk:'Картопты қыстыбай', en:'Potato Kystyby'},
+      composition:{ru:'Тонкая лепёшка, картофельное пюре, сливочное масло', kk:'Жұқа күлше, картоп пюресі, сары май', en:'Thin flatbread, mashed potato, butter'},
+      time:{ru:'15 мин на сухой сковороде', kk:'құрғақ табада 15 минут', en:'15 min on a dry pan'},
+      unit:{ru:'шт', kk:'дана', en:'pcs'}},
+    {id:'belyash', category:'fry', tag:{ru:'Новинка',kk:'Жаңалық',en:'New'}, price:320, photo:'images/belyashi.jpg',
+      name:{ru:'Беляши с мясом', kk:'Етті бэлиш', en:'Meat Belyashi'},
+      composition:{ru:'Дрожжевое тесто, говяжий фарш, лук, специи', kk:'Ашытқылы қамыр, сиыр етінің қиымасы, пияз, дәмдеуіштер', en:'Yeast dough, minced beef, onion, spices'},
+      time:{ru:'12 мин жарки', kk:'12 минут қуыру', en:'12 min frying'},
+      unit:{ru:'шт', kk:'дана', en:'pcs'}}
+  ];
+
+  let currentLang = 'ru';
+  try{
+    const saved = localStorage.getItem(LANG_KEY);
+    if(saved && I18N[saved]) currentLang = saved;
+  }catch(e){}
+
+  function t(key){ return I18N[currentLang][key]; }
+  function fmt(n){ return n.toLocaleString(LOCALE_MAP[currentLang]); }
+
+  let cart = {};
+  try{
+    const saved = JSON.parse(localStorage.getItem(CART_KEY) || '{}');
+    if(saved && typeof saved === 'object') cart = saved;
+  }catch(e){}
+
+  function saveCart(){
+    try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){}
+  }
+
+  function applyStaticI18n(){
+    document.querySelectorAll('[data-i18n]').forEach(el=>{
+      const key = el.getAttribute('data-i18n');
+      if(I18N[currentLang][key] !== undefined) el.textContent = I18N[currentLang][key];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(el=>{
+      const key = el.getAttribute('data-i18n-html');
+      if(I18N[currentLang][key] !== undefined) el.innerHTML = I18N[currentLang][key];
+    });
+    document.getElementById('openCartBtn').setAttribute('aria-label', t('ariaOpenCart'));
+    document.querySelectorAll('.lang-btn').forEach(b=>{
+      b.classList.toggle('active', b.dataset.lang === currentLang);
+    });
+  }
+
+  let activeCategory = 'all';
+
+  const filtersEl = document.getElementById('filters');
+  function renderFilters(){
+    filtersEl.innerHTML = '';
+    const keys = ['all', ...Array.from(new Set(PRODUCTS.map(p=>p.category)))];
+    keys.forEach(key=>{
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (key===activeCategory ? ' active' : '');
+      btn.textContent = key === 'all' ? t('filterAll') : CATEGORY_LABELS[key][currentLang];
+      btn.addEventListener('click', ()=>{
+        activeCategory = key;
+        renderFilters();
+        renderMenu();
+      });
+      filtersEl.appendChild(btn);
+    });
+  }
+
+  const menuGrid = document.getElementById('menuGrid');
+  function renderMenu(){
+    menuGrid.innerHTML = '';
+    PRODUCTS.filter(p => activeCategory==='all' || p.category===activeCategory).forEach(p=>{
+      const card = document.createElement('div');
+      card.className = 'card';
+      const inCart = !!cart[p.id];
+      const name = p.name[currentLang];
+      const tagText = p.tag ? p.tag[currentLang] : null;
+      card.innerHTML =
+        '<div class="card-media">' + (tagText ? '<span class="badge">'+tagText+'</span>' : '') + '<img src="'+p.photo+'" alt="'+name+'" loading="lazy">' + '</div>' +
+        '<div class="card-body">' +
+          '<h3>'+name+'</h3>' +
+          '<div class="meta-row">' +
+            '<div><b>'+t('compositionLabel')+':</b><span>'+p.composition[currentLang]+'</span></div>' +
+            '<div><b>'+t('timeLabel')+':</b><span>'+p.time[currentLang]+'</span></div>' +
+          '</div>' +
+          '<div class="card-foot">' +
+            '<div class="price">'+fmt(p.price)+' ₸ <span>/ '+p.unit[currentLang]+'</span></div>' +
+            '<button class="add-btn '+(inCart?'added':'')+'" data-id="'+p.id+'">'+(inCart?t('inCartLabel'):t('addToCart'))+'</button>' +
+          '</div>' +
+        '</div>';
+      menuGrid.appendChild(card);
+    });
+    menuGrid.querySelectorAll('.add-btn').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const id = btn.dataset.id;
+        cart[id] = (cart[id] || 0) + 1;
+        saveCart();
+        renderMenu();
+        renderCart();
+      });
+    });
+  }
+
+  const cartItemsEl = document.getElementById('cartItems');
+  const cartCountEl = document.getElementById('cartCount');
+  const totalCountEl = document.getElementById('totalCount');
+  const subTotalEl = document.getElementById('subTotal');
+  const deliveryFeeEl = document.getElementById('deliveryFee');
+  const totalSumEl = document.getElementById('totalSum');
+  const minOrderNoteEl = document.getElementById('minOrderNote');
+  const checkoutBtn = document.getElementById('checkoutBtn');
+
+  function renderCart(){
+    const ids = Object.keys(cart).filter(id => cart[id] > 0);
+    let totalItems = 0, totalSum = 0;
+
+    if(ids.length === 0){
+      cartItemsEl.innerHTML = '<div class="cart-empty">'+t('cartEmpty')+'</div>';
+    }else{
+      cartItemsEl.innerHTML = '';
+      ids.forEach(id=>{
+        const p = PRODUCTS.find(x=>x.id===id);
+        if(!p) return;
+        const qty = cart[id];
+        totalItems += qty;
+        const lineTotal = qty * p.price;
+        totalSum += lineTotal;
+        const line = document.createElement('div');
+        line.className = 'cart-line';
+        line.innerHTML =
+          '<span class="name">'+p.name[currentLang]+'</span>' +
+          '<span class="qty-ctrl">' +
+            '<button data-id="'+id+'" data-action="minus" aria-label="'+t('ariaRemoveOne')+'">−</button>' +
+            '<span>'+qty+'</span>' +
+            '<button data-id="'+id+'" data-action="plus" aria-label="'+t('ariaAddOne')+'">+</button>' +
+          '</span>' +
+          '<span class="line-total">'+fmt(lineTotal)+' ₸</span>';
+        cartItemsEl.appendChild(line);
+      });
+      cartItemsEl.querySelectorAll('[data-action]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{
+          const id = btn.dataset.id;
+          if(btn.dataset.action === 'plus') cart[id] = (cart[id]||0) + 1;
+          else cart[id] = Math.max(0, (cart[id]||0) - 1);
+          if(cart[id] === 0) delete cart[id];
+          saveCart();
+          renderMenu();
+          renderCart();
+        });
+      });
+    }
+
+    cartCountEl.textContent = totalItems;
+    totalCountEl.textContent = totalItems;
+    subTotalEl.textContent = fmt(totalSum) + ' ₸';
+
+    const deliveryFee = totalSum === 0 ? 0 : (totalSum >= MIN_ORDER ? 0 : DELIVERY_FEE);
+    const grandTotal = totalSum + deliveryFee;
+    deliveryFeeEl.textContent = totalSum === 0 ? '—' : (deliveryFee === 0 ? t('deliveryFree') : fmt(deliveryFee) + ' ₸');
+    totalSumEl.textContent = fmt(grandTotal) + ' ₸';
+
+    if(totalSum === 0){
+      minOrderNoteEl.innerHTML = '';
+      checkoutBtn.disabled = true;
+    }else if(totalSum < MIN_ORDER){
+      const rest = MIN_ORDER - totalSum;
+      minOrderNoteEl.innerHTML = '<div class="min-order-note warn">'+t('noteWarn')(fmt(rest))+'</div>';
+      checkoutBtn.disabled = false;
+    }else{
+      minOrderNoteEl.innerHTML = '<div class="min-order-note good">'+t('noteGood')+'</div>';
+      checkoutBtn.disabled = false;
+    }
+  }
+
+  checkoutBtn.addEventListener('click', ()=>{
+    const ids = Object.keys(cart).filter(id => cart[id] > 0);
+    if(ids.length === 0) return;
+    let text = t('whatsappGreeting')+'%0A';
+    let sum = 0;
+    ids.forEach(id=>{
+      const p = PRODUCTS.find(x=>x.id===id);
+      if(!p) return;
+      const qty = cart[id];
+      sum += qty * p.price;
+      text += '— '+p.name[currentLang]+' × '+qty+' ('+fmt(qty*p.price)+' ₸)%0A';
+    });
+    const fee = sum >= MIN_ORDER ? 0 : DELIVERY_FEE;
+    text += (fee > 0 ? t('whatsappDelivery')+fmt(fee)+' ₸' : t('whatsappDeliveryFree'))+'%0A';
+    text += t('whatsappTotal')+fmt(sum+fee)+' ₸.%0A';
+    const payLabels = {card:t('payCard'), applepay:t('payApplePay'), cash:t('payCash')};
+    const payMethod = document.querySelector('input[name="payMethod"]:checked')?.value || 'cash';
+    text += t('whatsappPayment')+(payLabels[payMethod] || payLabels.cash)+'.%0A';
+    text += t('whatsappAddress');
+    window.open('https://wa.me/77001234567?text=' + text, '_blank');
+  });
+
+  document.getElementById('openCartBtn').addEventListener('click', ()=>{
+    document.getElementById('checklist').scrollIntoView({behavior:'smooth'});
+  });
+
+  document.querySelectorAll('.copy-btn').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      const val = btn.dataset.copy;
+      try{
+        await navigator.clipboard.writeText(val);
+        const old = btn.textContent;
+        btn.textContent = t('copiedBtn');
+        setTimeout(()=>{ btn.textContent = t('copyBtn'); }, 1500);
+      }catch(e){
+        const range = document.createRange();
+        const span = document.getElementById('phoneText');
+        if(span){
+          range.selectNodeContents(span);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        }
+      }
+    });
+  });
+
+  document.querySelectorAll('.lang-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      currentLang = btn.dataset.lang;
+      try{ localStorage.setItem(LANG_KEY, currentLang); }catch(e){}
+      renderAll();
+    });
+  });
+
+  function renderAll(){
+    applyStaticI18n();
+    renderFilters();
+    renderMenu();
+    renderCart();
+  }
+
+  renderAll();
+})();
+</script>
